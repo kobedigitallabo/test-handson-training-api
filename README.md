@@ -1,7 +1,7 @@
 # test-handson-training-api
 
 ## Front Project
-[Fron](https://github.com/kobedigitallabo/test-handson-training) 
+[Front](https://github.com/kobedigitallabo/test-handson-training) 
 
 ## Project setup
 ```
