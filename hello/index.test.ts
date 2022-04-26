@@ -5,8 +5,12 @@ import {
   createHttpTrigger,
 } from 'stub-azure-function-context'
 
+// cosmosDB操作をモック
+const mock = {
+}
+
 jest.mock('../SharedCode/cosmos', () => ({
-  findAllDocument: async () => {
+  findDocument: async (id) => {
       return [{}]
   },
   getContainer: jest.fn(),
@@ -14,7 +18,7 @@ jest.mock('../SharedCode/cosmos', () => ({
 
 
 describe('azure function handler', () => {
-  it('helloworldではcosmosの中身を何かしら返している', async () => {
+  it('helloテスト: 成功パターン', async () => {
 
     const context = await mockedRequestFactory(httpTrigger, createHttpTrigger(
       'GET', // method
@@ -24,7 +28,6 @@ describe('azure function handler', () => {
       {}, // body
       {}, // query
     ))
-    expect(context.res.body.records).toBeTruthy()
   })
 })
 
