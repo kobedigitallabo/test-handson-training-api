@@ -19,8 +19,8 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
     const id = valided.values.id
 
     const container = await getContainer('hello')
-    const record = await findDocument<Hello>(id, id, container)
-    if (!record) {
+    const hello: Hello = await findDocument<Hello>(id, id, container)
+    if (!hello) {
         context.log('id notFound', { id })
         context.res = {
           status: 404,
@@ -32,7 +32,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
     context.res = {
         // status: 200, /* Defaults to 200 */
         body: {
-            record: record
+            hello
         }
     };
 
