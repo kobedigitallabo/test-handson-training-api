@@ -50,3 +50,8 @@ __azurite_db*__.json
 coverage
 
 .scannerwork/
+
+# OWASP ZAP
+zap/
+
+.vscode/
